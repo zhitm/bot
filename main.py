@@ -46,7 +46,7 @@ def parse(str):
 		time_to_send = str[1]
 		day, mnth, year, hour, min = parse_time(time_to_send)
 		if is_time_correct(day, mnth, year, hour, min):
-			event = Event(msg, {'day': day, 'mounth': mnth, 'year': year, 'hour': hour, 'minute': min})
+			event = Event(msg, {'day': int(day), 'mounth': int(mnth), 'year': int(year), 'hour': int(hour), 'minute': int(min)})
 			app.events.append(event)
 			TelegramBot.sendMessage(chat_id, 'at '+ time_to_send+ ' i will text you: ' + msg)
 
