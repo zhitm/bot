@@ -15,7 +15,7 @@ def answer(msg):
 	if content_type == 'text':
 		#TelegramBot.sendMessage(chat_id, "You said '{}'".format(msg["text"]))
 		print(msg["text"])
-		parsing(msg['text'])
+		parse(msg['text'])
 
 def parse_time(time):
 	day_mnth_year, hour_min = time.split(' ')[1:]
@@ -32,13 +32,13 @@ def is_time_correct(day, mnth, year, hour, min):
 	else:
 		return False
 	if all(
-		(day > 0, day <= 31, mnth > 0, mnth <= 12, year >= 2020, year < 2030, hour >= 0, hour < 23, min > 0, min < 60)):
+		(day > 0, day <= 31, mnth > 0, mnth <= 12, year >= 2020, year < 2030, hour >= 0, hour <= 23, min > 0, min < 60)):
 		pass
 	else:
 		return False
 	return True
 
-def parsing(str):
+def parse(str):
 	global chat_id
 	str = str.split(';')
 	if len(str) >= 2:
